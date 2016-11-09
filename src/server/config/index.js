@@ -12,15 +12,6 @@ configExport.staticUrl = process.env.STATIC_URL;
 configExport.appUrl = process.env.APP_URL;
 configExport.apiUrl = process.env.API_URL;
 
-configExport.clients = {
-  ios: {
-    secret: process.env.IOS_CLIENT_SECRET
-  },
-  android: {
-    secret: process.env.ANDROID_CLIENT_SECRET
-  }
-}
-
 // mongo
 configExport.mongo = {
   uri: process.env.MONGO_URI,
@@ -46,8 +37,8 @@ configExport.session = {
 
 configExport.auth = {
   facebook: {
-    clientID: '1421272674567421',
-    clientSecret: 'd97f5c5bd159ab6cbb5a7a889e30a6a8',
+    clientID: process.env.FB_CLIENT_ID,
+    clientSecret: process.env.FB_CLIENT_SECRET,
     callbackURL: configExport.appUrl+'auth/facebook/callback'
   }
 }
