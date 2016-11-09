@@ -4,5 +4,5 @@
     "watch": [
       "src/server/**/*"
     ],
-    "exec": "babel-node src/server/server.js"
+    "exec": "babel-node src/server/index.js"
 }

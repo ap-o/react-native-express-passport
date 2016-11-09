@@ -22,10 +22,6 @@ export default (app) => {
   // nunjucks
   nunjucks.configure(path.join(__dirname, '../', 'templates'), { express: app });
 
-  // Set Nunjucks as rendering engine for pages with .html suffix
-  app.engine( 'njk', nunjucks.render ) ;
-  app.set( 'view engine', 'njk' ) ;
-
   // session
   let sessionStore = dbSession();
   let sessionOptions = {
