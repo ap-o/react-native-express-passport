@@ -5,8 +5,8 @@ var ContextReplacementPlugin = require('webpack/lib/ContextReplacementPlugin');
 
 const PATHS = {
   root: __dirname,
-  server: path.join(__dirname, '../', 'server'),
-  output: path.join(__dirname, '../', '../', 'lib'),
+  server: path.join(__dirname, '../', 'src', 'server'),
+  output: path.join(__dirname, '../', 'lib'),
 };
 
 var nodeModules = {};
@@ -71,6 +71,15 @@ var webpackConfig = {
         {
           test: /\.json$/,
           loader: 'json-loader'
+        },
+        {
+          // jinja/nunjucks templates
+          test: /\.(njk|nunj|nunjucks)?$/,
+          exclude: /node_modules/,
+          loader: 'jinja-loader',
+          query: {
+              root: PATHS.templates
+          }
         },
         {
           test: /\.(njk|nunj|nunjucks)?$/,
