@@ -1,0 +1,8 @@
+{
+    "verbose": false,
+    "ext": "js,njk,json,jsx",
+    "watch": [
+      "src/server/**/*"
+    ],
+    "exec": "babel-node src/server/server.js"
+}

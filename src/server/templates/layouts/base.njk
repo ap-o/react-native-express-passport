@@ -1,0 +1,32 @@
+{% block variables %}
+  {% set baseTitle = "" %}
+	{% set page = "" %}
+	{% set title = "" %}
+	{% set description = "" %}
+	{% set keywords = "" %}
+{% endblock %}
+
+<!DOCTYPE html><!--[if IE 8]><html class="ie8" lang="en"><![endif]-->
+<!--[if IE 9]><html lang="en" class="ie9"><![endif]-->
+<!--[if !IE]><!-->
+<html lang="en"><!--<![endif]-->
+	<head>
+		<title>{{ baseTitle }} | {{ title }}</title>
+		{% include "includes/metatags.njk" %}
+		{% include "includes/styles.njk" %}
+	</head>
+  <body class="{{page}}">
+
+  {% block header %}{% endblock %}
+
+  <div class="main-wrap">
+    {% block main %} {% endblock %}
+  </div>
+
+  {% block aside %}{% endblock %}
+
+  {% block footer %}{% endblock %}
+
+  {% include "includes/scripts.njk" %}
+</body>
+</html>
