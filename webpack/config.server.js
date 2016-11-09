@@ -2,11 +2,13 @@ var path = require('path');
 var fs = require('fs');
 var webpack = require('webpack');
 var ContextReplacementPlugin = require('webpack/lib/ContextReplacementPlugin');
+var CopyWebpackPlugin = require('copy-webpack-plugin');
 
 const PATHS = {
   root: __dirname,
   server: path.join(__dirname, '../', 'src', 'server'),
-  output: path.join(__dirname, '../', 'lib'),
+  templates: path.join(__dirname, '../', 'src', 'server', 'templates'),
+  output: path.join(__dirname, '../', 'build'),
 };
 
 var nodeModules = {};
@@ -36,6 +38,7 @@ var webpackConfig = {
     },
 
     node: {
+      __dirname: false,
       console: 'empty',
       dns: 'empty',
       fs: 'empty',
@@ -92,7 +95,11 @@ var webpackConfig = {
     plugins: [
       new webpack.NormalModuleReplacementPlugin(/underscore/, 'lodash'),
 
-      new webpack.ContextReplacementPlugin(/moment[\/\\]locale$/, /en/)
+      new webpack.ContextReplacementPlugin(/moment[\/\\]locale$/, /en/),
+
+      new CopyWebpackPlugin([
+        { from: PATHS.templates, to: 'templates' }
+      ])
     ]
 };
 

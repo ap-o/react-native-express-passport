@@ -20,8 +20,13 @@ const isProduction = config.env === 'production';
 export default (app) => {
 
   // nunjucks
-  nunjucks.configure(path.join(__dirname, '../', 'templates'), { express: app });
-
+  var templatesPath;
+  if(config.env === 'development') {
+    templatesPath = path.join(__dirname, '../', 'templates');
+  } else{
+    templatesPath = path.join(__dirname, 'templates');
+  }
+  nunjucks.configure(templatesPath, { express: app });
 
   //configure express app
   if (isProduction) {

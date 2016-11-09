@@ -2,6 +2,8 @@ require('babel-register');
 
 import express from 'express';
 import http from 'http';
+import path from 'path';
+import nunjucks from 'nunjucks';
 
 import config from './config';
 import mongoConnect from './config/mongo';
