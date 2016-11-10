@@ -3,20 +3,24 @@ import bg from 'gulp-bg';
 import nodemon from 'gulp-nodemon';
 import shell from 'gulp-shell';
 
-gulp.task('server-dev', done => {
+gulp.task('server-dev', ['env'], done => {
   gulp.src('').pipe(shell('nodemon'))
   done();
 });
 
-// gulp.task('server-dev', function () {
+// noope
+// gulp.task('server-dev-nodemon', ['env'], done => {
 //   nodemon({
-//     verbose: false,
-//     ext: 'js,njk,json,jsx',
+//     execMap: {
+//       js: 'babel-node'
+//     },
+//     script: 'src/server/index.js',
+//     ignore: ['*'],
 //     watch: [
-//       'src/common/**/*',
 //       'src/server/**/*'
 //     ],
-//     script: 'src/server/index.js',
-//     exec: 'babel-node'
-//   })
-// })
+//     ext: 'noop'
+//   }).on('restart', function() {
+//     console.log('Restarted!');
+//   });
+// });
