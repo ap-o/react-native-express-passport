@@ -1,7 +1,5 @@
 function configExport() {}
 
-//EAAUMo9TlhP0BAEEU7BYAYACrJ1MqTjy3t4GNZBB5whLhKbepYDsa3xGuHfeGZBr1rWzLfxK26uOZBClCsWLUkOkk0Uovd85WvVhNRPndtL4fruWHZBIsVZAWahShSLf28u0kY0wPNsqQzTAgl6fSEbTRC937bHor2r16CjXFQDwZDZD
-
 // root
 configExport.env = process.env.NODE_ENV || 'development';
 configExport.port = process.env.PORT || 8000;
